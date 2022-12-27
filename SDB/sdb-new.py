@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtCore import QSize, Qt
@@ -13,7 +14,6 @@ class Window(QMainWindow):
         super().__init__()
         self.setMinimumSize(QSize(350, 200))
         self.setWindowTitle('Series Database')
-
         
         # Grid-Layout
         wid = QWidget(self)
@@ -95,6 +95,7 @@ f.close()
 
 # quit if window closed        
 app = QtWidgets.QApplication([])
+app.setStyleSheet(Path("sdbStyle.qss").read_text())
 win = Window()
 win.show()
 app.exec()
